@@ -138,8 +138,7 @@ C_INCLUDES =  \
 -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 \
 -IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
--IDrivers/CMSIS/Include
-
+-IDrivers/CMSIS/Include 
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
@@ -169,7 +168,22 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 
+#######################################
+# micro-ROS addons
+#######################################
+LDFLAGS += micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/libmicroros.a
+C_INCLUDES += -Imicro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include
 
+# Add micro-ROS utils
+C_SOURCES += micro_ros_stm32cubemx_utils/extra_sources/custom_memory_manager.c
+C_SOURCES += micro_ros_stm32cubemx_utils/extra_sources/microros_allocators.c
+C_SOURCES += micro_ros_stm32cubemx_utils/extra_sources/microros_time.c
+
+# Set here the custom transport implementation
+C_SOURCES += micro_ros_stm32cubemx_utils/extra_sources/microros_transports/dma_transport.c
+
+print_cflags:
+	@echo $(CFLAGS)
 #######################################
 # build the application
 #######################################
