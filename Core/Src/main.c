@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "microros.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
