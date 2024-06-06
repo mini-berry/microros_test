@@ -117,7 +117,6 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
   // micro-ROS configuration
-
   rmw_uros_set_custom_transport(
       true,
       (void *)&huart1,
@@ -164,7 +163,9 @@ void StartDefaultTask(void *argument)
 
   for (;;)
   {
-    rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+    rcl_ret_t ret;
+
+    ret = rcl_publish(&publisher, &msg, NULL);
     if (ret != RCL_RET_OK)
     {
       printf("Error publishing (line %d)\n", __LINE__);

@@ -17,7 +17,7 @@
                 "USE_HAL_DRIVER",
                 "STM32F103xE"
             ],
-            "compilerPath": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+            "compilerPath": "C:/Users/exsg/.eide/tools/gcc_arm/bin/arm-none-eabi-gcc.exe",
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "gcc-arm"

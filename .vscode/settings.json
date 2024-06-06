@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "cmsis_os.h": "c",
-        "microros.h": "c"
+        "microros.h": "c",
+        "usart.h": "c"
     }
 }
