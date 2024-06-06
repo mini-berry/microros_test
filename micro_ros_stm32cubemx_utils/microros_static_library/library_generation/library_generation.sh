@@ -7,8 +7,8 @@ export BASE_PATH=/project/$MICROROS_LIBRARY_FOLDER
 apt update
 apt install -y gcc-arm-none-eabi
 
-export http_proxy=http://192.168.8.9:10809
-export https_proxy=http://192.168.8.9:10809
+export http_proxy=http://192.168.31.154:10809
+export https_proxy=http://192.168.31.154:10809
 
 cd /uros_ws
 
