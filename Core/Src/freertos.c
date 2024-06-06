@@ -169,9 +169,10 @@ void StartDefaultTask(void *argument)
     if (ret != RCL_RET_OK)
     {
       printf("Error publishing (line %d)\n", __LINE__);
-      HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_5);
+      // 故障灯
+      HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5, GPIO_PIN_RESET);
     }
-
+    // 数据灯
     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
     msg.data++;
     if (msg.data >= 999)
