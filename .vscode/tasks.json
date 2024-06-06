@@ -14,17 +14,24 @@
             }
         },
         {
-            "label": "flash with OpenOCD",
+            "label": "flash",
             "type": "shell",
-            "command": "openocd",
+            "command": "C:/Users/exsg/.eide/tools/openocd_7a1adfbec_mingw32/bin/openocd.exe",
             "args": [
+                "-s",
+                "c:/Users/exsg/Documents/CubePrj/microros_test",
                 "-f",
                 "interface/stlink.cfg",
                 "-f",
                 "target/stm32f1x.cfg",
                 "-c",
-                "program <your_binary_file> verify reset exit"
-            ]
+                "program c:/Users/exsg/Documents/CubePrj/microros_test/build/microros.elf verify",
+                "-c",
+                "reset run",
+                "-c",
+                "exit"
+            ],
+            "problemMatcher": []
         }
     ]
 }
